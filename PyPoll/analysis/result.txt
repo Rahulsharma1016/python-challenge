@@ -1,9 +1,7 @@
-out_path = os.path.join("analysis","result.txt")
-with open (out_path, "w") as txt_file:
-
-    txt_file.write("Election Results")
-    txt_file.write(f"Total Votes: {total_votes}")
-    txt_file.write (f"Total Number of Candidates: {total_candidates}")
-    txt_file.write("Votes per Candidate:")
-    txt_file.write(f"{candidate}: {votes} votes ({percentage:.3f}%)")
-    txt_file.write(f"Winner: {winner}")
+Election Results
+Total Votes: 369711
+Total Number of Candidates: 3
+Votes per Candidate:Charles Casper Stockham: 85213 votes (23.049%)
+Diana DeGette: 272892 votes (73.812%)
+Raymon Anthony Doane: 11606 votes (3.139%)
+Winner: Diana DeGette

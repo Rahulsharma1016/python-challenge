@@ -1,9 +1,0 @@
-out_path = os.path.join("analysis","result.txt")
-with open (out_path, "w") as txt_file:
-
-    txt_file.write("Financial Analysis")
-    txt_file.write("Total Months:")
-    txt_file.write("Total: $")
-    txt_file.write("Average Change: $")
-    txt_file.write("Greatest Increase in Profits:", max_increase_month, "($", max_increase, ")")
-    txt_file.write("Greatest Decrease in Profits:", max_decrease_month, "($", max_decrease, ")")

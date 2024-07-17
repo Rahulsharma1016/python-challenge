@@ -1,4 +1,5 @@
 import csv
+import os
 
 # Initialize counters and collections
 unique_candidates = set()
@@ -6,7 +7,7 @@ unique_voters = set()
 candidate_votes = {}
 
 # Open the CSV file
-with open('Resources/election_data.csv', mode='r') as file:
+with open('PyPoll/Resources/election_data.csv', mode='r') as file:
     csv_reader = csv.reader(file)
     
     # Skip the header row
@@ -47,3 +48,15 @@ for candidate, votes in candidate_votes.items():
     print(f"{candidate}: {votes} votes ({percentage:.3f}%)")
     # Print the winner
 print(f"Winner: {winner}")
+
+out_path = os.path.join("PyPoll","analysis","result.txt")
+with open (out_path, "w") as txt_file:
+
+    txt_file.write("Election Results\n")
+    txt_file.write(f"Total Votes: {total_votes}\n")
+    txt_file.write (f"Total Number of Candidates: {total_candidates}\n")
+    txt_file.write("Votes per Candidate:")
+    for candidate, votes in candidate_votes.items():
+        percentage = (votes / total_votes) * 100
+        txt_file.write(f"{candidate}: {votes} votes ({percentage:.3f}%)\n")
+    txt_file.write(f"Winner: {winner}")

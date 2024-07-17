@@ -1,6 +1,7 @@
 import csv
+import os
 
-with open('Resources/budget_data.csv', mode='r') as file:
+with open('pybank/Resources/budget_data.csv', mode='r') as file:
     # Create a CSV reader object
     csv_reader = csv.reader(file)
     
@@ -41,7 +42,7 @@ with open('Resources/budget_data.csv', mode='r') as file:
         previous_value = value
       
     # Calculate the average change
-    average_change = round(sum(changes) / len(changes,),2) if changes else 0
+    average_change = round(sum(changes) / len(changes), 2) if changes else 0
 
     # Output results
     print("Financial Analysis")
@@ -50,3 +51,13 @@ with open('Resources/budget_data.csv', mode='r') as file:
     print("Average Change: $", average_change)
     print("Greatest Increase in Profits:", max_increase_month, "($", max_increase, ")")
     print("Greatest Decrease in Profits:", max_decrease_month, "($", max_decrease, ")")
+
+# Write results to a text file
+out_path = os.path.join("PyBank","analysis", "result1.txt")
+with open(out_path, "w") as txt_file:
+    txt_file.write("Financial Analysis\n")
+    txt_file.write(f"Total Months: {total_months}\n")
+    txt_file.write(f"Total: ${total}\n")
+    txt_file.write(f"Average Change: ${average_change}\n")
+    txt_file.write(f"Greatest Increase in Profits: {max_increase_month} (${max_increase})\n")
+    txt_file.write(f"Greatest Decrease in Profits: {max_decrease_month} (${max_decrease})\n")
